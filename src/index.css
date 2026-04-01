@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Cairo", ui-sans-serif, system-ui, sans-serif;
+  --font-serif: "Cormorant Garamond", serif;
+  
+  --color-brand-bg: #050a12;
+  --color-brand-bg-light: #0a121e;
+  --color-brand-accent: #313F9F;
+  --color-brand-accent-light: #5C6BC0;
+  --color-brand-blue: #1A237E;
+  
+  --shadow-luxury: 0 20px 50px rgba(0, 0, 0, 0.5);
+  --shadow-accent: 0 10px 30px rgba(49, 63, 159, 0.25);
+}
+
+@layer base {
+  body {
+    @apply bg-brand-bg text-gray-300 antialiased selection:bg-brand-accent selection:text-white;
+  }
+  
+  h1, h2, h3, h4 {
+    @apply font-sans font-bold text-white tracking-tight;
+  }
+}
+
+/* Luxury Animations */
+.glass-card {
+  @apply bg-white/5 backdrop-blur-xl border border-white/10 shadow-luxury;
+}
+
+.accent-gradient {
+  background: linear-gradient(135deg, #313F9F 0%, #5C6BC0 50%, #7986CB 100%);
+}
+
+.shiny-text {
+  background: linear-gradient(90deg, #5C6BC0 0%, #ffffff 50%, #5C6BC0 100%);
+  background-size: 200%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: shine 5s linear infinite;
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+.hero-title {
+  font-size: clamp(4rem, 12vw, 10rem);
+  line-height: 0.85;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.section-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1;
+  font-weight: 600;
+}
+
